@@ -9,6 +9,9 @@ body {
 .header__text {
   color: white; }
 
+.header__container {
+  background-color: black; }
+
 .form {
   display: flex;
   flex-wrap: wrap;
