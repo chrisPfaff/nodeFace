@@ -1,0 +1,29 @@
+{
+  "name": "nodeface",
+  "version": "1.0.0",
+  "description": "node app that finds face",
+  "main": "index.js",
+  "scripts": {
+    "scss": "node-sass --watch public -o public",
+    "dev": "nodemon index.js",
+    "build": "npm run scss & npm run dev",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrisPfaff/nodeFace.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chrisPfaff/nodeFace/issues"
+  },
+  "homepage": "https://github.com/chrisPfaff/nodeFace#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "formidable": "^1.2.1",
+    "fs": "0.0.1-security",
+    "node-sass": "^4.11.0"
+  }
+}

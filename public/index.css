@@ -1,0 +1,21 @@
+body {
+  background-color: black; }
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
+
+.header__text {
+  color: white; }
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #666;
+  padding: 20px; }
+
+.form__container {
+  background-color: white;
+  border-radius: 2px; }
