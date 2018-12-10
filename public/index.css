@@ -33,4 +33,5 @@ body {
   padding: 20px; }
 
 .img__container {
-  background-color: white; }
+  background-color: white;
+  box-shadow: 5px 5px 12px 15px grey; }

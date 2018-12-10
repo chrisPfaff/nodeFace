@@ -19,6 +19,7 @@ app.get("/", (req, res) => {
 app.post("/fileupload", upload.single("filetoupload"), (req, res) => {
   const tempPath = req.file.path;
   const targetPath = path.join(__dirname, "./uploads/image.jpg");
+  console.log(req.file);
   fs.renameSync(tempPath, targetPath);
   res.redirect("/");
 });
