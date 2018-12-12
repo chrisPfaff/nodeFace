@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Header from "./Header";
-import Form from "./Form";
+
 import "../scss/app.scss";
 
 class App extends Component {
@@ -9,7 +9,21 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Form />
+        <div>
+          <section className="form">
+            <div className="form__container">
+              <form
+                method="post"
+                action="fileupload"
+                enctype="multipart/form-data"
+                class="form__data"
+              >
+                <input type="file" name="filetoupload" />{" "}
+                <input type="submit" />
+              </form>
+            </div>
+          </section>
+        </div>
       </div>
     );
   }
