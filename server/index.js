@@ -7,13 +7,13 @@ const upload = multer({ dest: "uploads/", fileFilter: imgFilter });
 const port = process.env.PORT || 3333;
 
 const app = express();
+app.use(express.static("dist"));
 
-app.use(express.static(__dirname + "../index.html"));
-
-// app.get("/", (req, res) => {
-//   res.sendFile(__dirname + "/index.html");
-// });
-
+app.get("/", (req, res) => {
+  const dir = path.join(__dirname, "../dist");
+  res.sendFile(dir + "/index.html");
+});
+//console.log(path.join(__dirname, "../"));
 // app.post("/fileupload", upload.single("filetoupload"), (req, res) => {
 //   const tempPath = req.file.path;
 //   const targetPath = path.join(__dirname, "./uploads/image.jpg");
