@@ -1,49 +1,47 @@
-var webpack = require("webpack");
-var path = require("path");
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+require("@babel/polyfill");
 
-var BUILD_DIR = path.resolve(__dirname, "./build");
-
-const config = {
+module.exports = {
+  mode: "production",
   entry: ["@babel/polyfill", "./src/client/index.js"],
   output: {
     filename: "bundle.js",
-    path: BUILD_DIR
+    publicPath: "/"
   },
   module: {
     rules: [
-      {
-        test: /(\.css|.scss)$/,
-        use: [
-          {
-            loader: "style-loader"
-          },
-          {
-            loader: "css-loader"
-          },
-          {
-            loader: "sass-loader"
-          }
-        ]
-      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader"
         }
+      },
+      {
+        test: /\.(css|scss)$/,
+        use: ["style-loader", "css-loader", "sass-loader"]
+      },
+      {
+        test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
+        loaders: ["file-loader"]
+      },
+      {
+        test: /\.html$/,
+        use: {
+          loader: "html-loader",
+          options: {
+            minimize: true
+          }
+        }
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./server/index.html",
+      filename: "./index.html",
+      hash: true
+    })
+  ]
 };
-
-module.exports = config;
-// test: /\.(jsx|js)?$/,
-// use: [
-//   {
-//     loader: "babel-loader",
-//     options: {
-//       cacheDirectory: true,
-//       presets: ["react", "es2015"]
-//     }
-//   }
-// ]
