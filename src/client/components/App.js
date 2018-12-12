@@ -1,8 +1,17 @@
 import React, { Component } from "react";
+import Header from "./Header";
+import Form from "./Form";
+import "../scss/app.scss";
 
 class App extends Component {
+  state = {};
   render() {
-    return <h1>Hello World</h1>;
+    return (
+      <div>
+        <Header />
+        <Form />
+      </div>
+    );
   }
 }
 

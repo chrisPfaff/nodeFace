@@ -9,6 +9,7 @@ module.exports = {
     filename: "bundle.js",
     publicPath: "/"
   },
+  // watch: true,
   module: {
     rules: [
       {

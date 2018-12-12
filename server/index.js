@@ -13,14 +13,14 @@ app.get("/", (req, res) => {
   const dir = path.join(__dirname, "../dist");
   res.sendFile(dir + "/index.html");
 });
-//console.log(path.join(__dirname, "../"));
-// app.post("/fileupload", upload.single("filetoupload"), (req, res) => {
-//   const tempPath = req.file.path;
-//   const targetPath = path.join(__dirname, "./uploads/image.jpg");
-//   console.log(req.file);
-//   fs.renameSync(tempPath, targetPath);
-//   res.redirect("/");
-// });
+
+app.post("/fileupload", upload.single("filetoupload"), (req, res) => {
+  const tempPath = req.file.path;
+  const targetPath = path.join(__dirname, "./uploads/image.jpg");
+  console.log(req.file);
+  fs.renameSync(tempPath, targetPath);
+  res.redirect("/");
+});
 
 app.listen(port, () => {
   console.log(`Your app is listening on ${port}`);
